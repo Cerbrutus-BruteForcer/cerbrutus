@@ -75,3 +75,5 @@ Read in 224 words from /opt/wordlists/fasttrack.txt
 1100 threads took 637 seconds which means 31 rps
 110 threads took 1457 seconds so that's 13.7 rps
 ```
+
+Uses a custom implementation of paramiko to overcome a few minor issues with implementing it for ssh brute forcing. - https://github.com/paramiko/paramiko/
