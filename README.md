@@ -1,9 +1,18 @@
 # pass-brute
 Modular brute force tool written in python, for password spraying ssh, and in future other network services.
+Very fast. See below
+
+COMING SOON: FTP, SMB, HTTP(s) POST, HTTP(s) GET, HTTP BASIC AUTH
+
+## Installation:
+```bash
+cd /opt
+git clone https://github.com/Cerbrutus-BruteForcer/cerbrutus
+```
 
 ## Usage:
 ```bash
-python3 .\cerbrutus.py --help
+python3 /opt/cerbrutus/cerbrutus.py --help
 usage: cerbrutus.py [-h] -U USERS -P PASSWORDS [-p PORT] [-t THREADS] [-q [QUIET [QUIET ...]]] Host Service
 
 Python based network brute forcing tool!
@@ -26,7 +35,7 @@ optional arguments:
 ```
 
 ```bash
-.\cerbrutus.py 10.10.10.10 SSH -U "username" -P /opt/wordlists/fasttrack.txt -t 10
+/opt/cerbrutus/cerbrutus.py 10.10.10.10 SSH -U "username" -P /opt/wordlists/fasttrack.txt -t 10
 
         ================================================================
             __    ___  ____   ____   ____  __ __  ______  __ __  _____
