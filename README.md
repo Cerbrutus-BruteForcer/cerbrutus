@@ -3,6 +3,7 @@ Modular brute force tool written in python, for password spraying ssh, and in fu
 Very fast. See below
 
 COMING SOON: FTP, SMB, HTTP(s) POST, HTTP(s) GET, HTTP BASIC AUTH
+Thanks to @0dayctf, Rondons, Enigma, and 001 for testing and contributing
 
 ## Installation:
 ```bash
