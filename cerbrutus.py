@@ -65,7 +65,7 @@ def main():
             print(e)
             sys.exit()
 
-    threads = Cerbrutus.services.valid_services[service]["maxThreads"]
+    threads = Cerbrutus.services.valid_services[service]["reccomendedThreads"]
     if args.threads:
         try:
             threads = int(args.threads)
