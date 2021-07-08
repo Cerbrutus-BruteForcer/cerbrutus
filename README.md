@@ -1,9 +1,8 @@
-# pass-brute
-Modular brute force tool written in python, for password spraying ssh, and in future other network services.
-Very fast. See below
+# Cerbrutus
+Modular brute force tool written in Python, for very fast password spraying SSH, and in future other network services.
 
-COMING SOON: FTP, SMB, HTTP(s) POST, HTTP(s) GET, HTTP BASIC AUTH
-Thanks to @0dayctf, Rondons, Enigma, and 001 for testing and contributing
+COMING SOON: **FTP, SMB, HTTP(s) POST, HTTP(s) GET, HTTP BASIC AUTH**
+*Thanks to @0dayctf, Rondons, Enigma, and 001 for testing and contributing*
 
 ## Installation:
 ```bash
