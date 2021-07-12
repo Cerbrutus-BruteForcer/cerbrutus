@@ -15,19 +15,19 @@ class Wordlist:
 
     def read(self, append=False):
         if not append:
-            self.words = []
+            self.words = set()
         try:
             with open(self.path, 'rb') as words_file:
                 for line in words_file.readlines():
                     if not line:
                         continue
                     try:
-                        self.words.append(line.decode('UTF-8').strip())
+                        self.words.add(line.decode('UTF-8').strip())
                     except UnicodeDecodeError:
                         # print("Skipping... ", end="")
                         # print(line)
                         try:
-                            self.words.append(line.decode('Latin-1').strip())
+                            self.words.add(line.decode('Latin-1').strip())
                             # print(f"Read successfully {line.decode('Latin-1')}")
                         except UnicodeDecodeError:
                             continue
@@ -35,6 +35,7 @@ class Wordlist:
             print(f"Read in {len(self.words)} words from {self.path}")
         except IOError:
             raise IOError(f"File {self.path} is not readable...")
+        self.words = list(self.words)
         return self.words
 
     def write(self):
