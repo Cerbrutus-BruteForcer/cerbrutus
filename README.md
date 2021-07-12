@@ -1,7 +1,7 @@
 # Cerbrutus
-Modular brute force tool written in Python, for very fast password spraying SSH, and in the near future other network services.
+Modular brute force tool written in Python, for very fast password spraying SSH, and FTP and in the near future other network services.
 
-COMING SOON: **FTP, SMB, HTTP(s) POST, HTTP(s) GET, HTTP BASIC AUTH**
+COMING SOON: **SMB, HTTP(s) POST, HTTP(s) GET, HTTP BASIC AUTH**
 *Thanks to @0dayctf, Rondons, Enigma, and 001 for testing and contributing*
 
 ## Installation:
