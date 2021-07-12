@@ -1,6 +1,8 @@
 import time
 import paramiko
 import sys
+from ftplib import FTP as FTPCONN
+from ftplib import error_perm, error_temp, error_reply
 sys.tracebacklimit = None   
 
 
@@ -29,4 +31,29 @@ class SSH:
         return True
 
 
-valid_services = {'SSH': {"class": SSH, "reccomendedThreads": 100, "port": 22}}  # maybe add reccomended number of threads based on testing
+class FTP:
+    @staticmethod
+    def connect(ip:str, port:int, username: str, password:str):
+               
+        time.sleep(0.1)
+
+        with FTPCONN() as ftp:
+            try:
+                ftp.connect(host=ip, port=port)
+                ftp.login(user=username, passwd=password)
+            except error_perm:
+                return False
+            except ConnectionRefusedError:
+                return None
+            except (error_temp, OSError):
+                time.sleep(5)
+                return FTP.connect(ip, port, username, password)
+
+            return True
+
+valid_services = {
+                    'SSH': {"class": SSH, "reccomendedThreads": 100, "port": 22},
+                    'FTP': {"class": FTP, "reccomendedThreads": 50, "port": 21}
+                }  # maybe add reccomended number of threads based on testing
+
+
