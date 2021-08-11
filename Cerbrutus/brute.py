@@ -4,7 +4,7 @@ import time
 import sys
 import threading
 from colorama import Fore, Style
-
+import Cerbrutus
 '''
 Add estimated time remaining...
 Add output of how long its been running for already every few minutes.
@@ -16,6 +16,7 @@ class BruteUtil:
     start = time.time()
     end = time.time()
     MAX_THREADS = 1000
+
     def __init__(self, ip: str, port: int, service: str, users: list, passwords: list, threads: int = 10):
         # Validate IP
         if not isinstance(ip, str) or '.' not in ip:
@@ -70,7 +71,7 @@ class BruteUtil:
             for pwd in self.passwords: 
                 if self.creds_found:
                     self._exit()
-
+                self.passwords[self.passwords.index(pwd)] = pwd = Cerbrutus.Wordlist.clean_word(pwd)
                 thread = threading.Thread(target=self._auth, args=(user, pwd))
                 self.threads.append(thread)
                 while threading.active_count() > self.threads_num + 1:

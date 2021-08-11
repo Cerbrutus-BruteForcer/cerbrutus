@@ -18,23 +18,7 @@ class Wordlist:
             self.words = []
         try:
             with open(self.path, 'rb') as words_file:
-                for line in words_file.readlines():
-                    if not line:
-                        continue
-                    try:
-                        word = line.decode('UTF-8').strip()
-                        if word not in self.words:
-                            self.words.append(word)
-                    except UnicodeDecodeError:
-                        # print("Skipping... ", end="")
-                        # print(line)
-                        try:
-                            word = line.decode('Latin-1').strip()
-                            if word not in self.words:
-                                self.words.append(word)
-                            # print(f"Read successfully {line.decode('Latin-1')}")
-                        except UnicodeDecodeError:
-                            continue
+                self.words += words_file.readlines()
                         
             print(f"Read in {len(self.words)} words from {self.path}")
         except IOError:
@@ -55,11 +39,26 @@ class Wordlist:
         except IOError:
             raise IOError(f"File {self.path} cannot be written to")
 
-    def clean(self):
+    def clean_list(self):
         self.read()
         self.write()        
         print(f"Successfully Wrote {len(self.words)} to {self.path}")
 
+    @staticmethod
+    def clean_word(word):
+        if not word:
+            return
+        try:
+            word = word.decode('UTF-8').strip()
+        except UnicodeDecodeError:
+            # print("Skipping... ", end="")
+            # print(line)
+            try:
+                word = word.decode('Latin-1').strip()
+                # print(f"Read successfully {line.decode('Latin-1')}")
+            except UnicodeDecodeError:
+                return
+        return word
     '''
     def extend(self):
         # Will extend the password list
