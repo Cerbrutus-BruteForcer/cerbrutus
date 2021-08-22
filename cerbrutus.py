@@ -37,7 +37,7 @@ def main():
     
     service = args.Service.upper()
     if service not in Cerbrutus.services.valid_services:
-        print(f"Service named {service} does not yet exist...")
+        print(f"Service named {service} does not exist yet...")
         sys.exit(1)
 
     port = Cerbrutus.services.valid_services[service]["port"]
@@ -59,7 +59,7 @@ def main():
     else:
         try:
             passfile = Cerbrutus.Wordlist(args.passwords)
-            print("[*] - Initialising password list...")
+            print("[*] - Initializing password list...")
             passwords = passfile.read()
         except FileNotFoundError as e:
             print(e)
@@ -70,7 +70,7 @@ def main():
         try:
             threads = int(args.threads)
         except Exception:
-            print("[-] - Specified number of threads was not a number.")
+            print("[-] - Specified number of threads is not a number.")
             sys.exit()
 
     Cerbrutus.BruteUtil(host, port, service, users, passwords, threads=threads).brute()
