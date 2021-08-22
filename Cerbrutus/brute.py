@@ -92,7 +92,7 @@ class BruteUtil:
             print(f"{Fore.GREEN}\033[1m[+] - VALID CREDENTIALS FOUND:\n\t{user}:{pwd}{Style.RESET_ALL}")
             print(f"[*] - Took {(self.passwords.index(pwd)+1)*(self.users.index(user)+1)} tries")
             self.end = time.time()
-            print(f"[*] - TOOK {self.end - self.start} seconds.")
+            print(f"[*] Total time - {self.end - self.start} seconds.")
 
     def _thread_collection(self):
         for thread in self.threads:
@@ -110,6 +110,6 @@ class BruteUtil:
         if not self.creds_found:
                 print(f"{Fore.RED}\033[1m[-] - Failed to find valid credentials for {self.ip}:{self.port}{Style.RESET_ALL}")
                 self.end = time.time()
-                print(f"[*] - TOOK {self.end - self.start} seconds.")
+                print(f"[*] Total time - {self.end - self.start} seconds.")
 
         sys.exit()
